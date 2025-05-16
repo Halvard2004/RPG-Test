@@ -13,7 +13,7 @@ public class Inventory
 
     public Inventory()
     {
-        ItemID = 0;
+        itemID = 0;
         amount = 0;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace VideoGame;
 
-public class Enemies
-{
-    public Enemy[] enemies = new Enemy[10];
-}
+// public class Enemies
+// {
+//     public Enemy[] enemies = new Enemy[10];
+// }

@@ -1,6 +1,6 @@
 ﻿namespace VideoGame;
 
-public class Enemy
-{
-
-}
+// public class Enemy
+// {
+//
+// }

@@ -1,8 +1,8 @@
 ﻿namespace VideoGame;
 
-public class CreateEntities
-{
-    public Enemies[] enemy = new Enemies();
-    
-
-}
+// public class CreateEntities
+// {
+//     public Enemies[] enemy = new Enemies();
+//     
+//
+// }
