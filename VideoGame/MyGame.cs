@@ -32,7 +32,9 @@ public class MyGame
     static void StartGame()
     {
         SelectDifficulty();
-        CreatePlayer();
+        CreatePlayer.CreatePlayerUnit(Difficulty);
+        int test = Player.Inventory[0].ItemID;
+        Console.Write(Items.test);
     }
 
     static void SelectDifficulty()
@@ -70,11 +72,6 @@ public class MyGame
             Console.WriteLine("Invalid key pressed, please try again.");
             SelectDifficulty();
         }
-    }
-
-    public static void CreatePlayer()
-    {
-        Player = new Player();
     }
 
 
