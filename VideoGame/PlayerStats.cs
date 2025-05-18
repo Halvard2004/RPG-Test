@@ -11,10 +11,10 @@ public class PlayerStats
         ShareStats(strengthGive, healthGive, agilityGive, amount);
     }
     
-    public static void GiveHealth(int amount)
+    public static void SetHealth(int amount, Player unit)
     {
-        MyGame.Player.MaxHealth = amount;
-        MyGame.Player.Health =  MyGame.Player.MaxHealth;
+        unit.MaxHealth = amount;
+        unit.Health =  unit.MaxHealth;
     }
     
     public static void ShareStats(int strengthGive, int healthGive, int agilityGive, int amount)
@@ -45,17 +45,17 @@ public class PlayerStats
         ConsoleKeyInfo input = Console.ReadKey(true);
         if (input.Key == ConsoleKey.D1)
         {
-            AmountStat(strengthGive, amount);
+            SelectGiveTakeStat(strengthGive, amount);
             return;
         } 
         else if (input.Key == ConsoleKey.D2)
         {
-            AmountStat(agilityGive, amount);
+            SelectGiveTakeStat(agilityGive, amount);
             return;
         } 
         else if (input.Key == ConsoleKey.D3)
         {
-            AmountStat(healthGive, amount);
+            SelectGiveTakeStat(healthGive, amount);
             return;
         }
         else;
@@ -64,7 +64,7 @@ public class PlayerStats
         }
     }
 
-    public static void AmountStat(int stat, int amount)
+    public static void SelectGiveTakeStat(int stat, int amount)
     {
         Console.WriteLine($"""
                            Add or Remove StatPoints {stat}
@@ -76,40 +76,56 @@ public class PlayerStats
         switch (readKey.Key)
         {
             case ConsoleKey.D1:
-                stat += 1;
+                AmountStat(stat, amount,"Remove");
                 break;
             case ConsoleKey.D2:
-                stat += 5;
+                AmountStat(stat, amount, "Add");
                 break;
             default:
-                AmountStat(stat, amount);
+                SelectGiveTakeStat(stat, amount);
                 return;
         }
         
+    }
+
+    public static void AmountStat(int stat, int amount, string statName)
+    {
+        int Selected;
         Console.WriteLine($"""
-                          How much
-                          1) 1
-                          2) 5
-                          3) {amount}
-                          """
+                           How much
+                           1) 1
+                           2) 5
+                           3) {amount}
+                           """
         );
         ConsoleKeyInfo input = Console.ReadKey(true);
         switch (input.Key)
         {
             case ConsoleKey.D1:
-                stat += 1;
+                Selected = 1;
                 break;
             case ConsoleKey.D2:
-                stat += 5;
+                Selected = 5;
                 break;
             case ConsoleKey.D3:
-                stat += amount;
+                Selected = amount;
                 break;
             default:
-                AmountStat(stat, amount);
+                AmountStat(stat, amount, statName);
                 return;
         }
-        
-        
+
+        if (statName == "Add")
+        {
+            stat += Selected;
+        } else if (statName == "Remove")
+        {
+            stat -= Selected;
+        }
+        else
+        {
+            Console.WriteLine("Try again");
+            AmountStat(stat, amount, statName);
+        }
     }
 }

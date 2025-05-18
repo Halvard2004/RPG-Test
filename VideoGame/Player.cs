@@ -14,9 +14,16 @@ public class Player
     {
         Inventory =
         [
-            new Inventory(1, 0),
-            new Inventory(2, 0),
-            new Inventory(3, 0),
+            new Inventory(Items.Cash, 0),
+            new Inventory(Items.HealthPotion, 0),
+            new Inventory(Items.HealthPotionMax, 0),
+            new Inventory(),
+            new Inventory(),
+            new Inventory(),
+            new Inventory(),
+            new Inventory(),
+            new Inventory(),
+            new Inventory(),
             new Inventory(),
             new Inventory(),
             new Inventory(),

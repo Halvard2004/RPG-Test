@@ -33,8 +33,7 @@ public class MyGame
     {
         SelectDifficulty();
         CreatePlayer.CreatePlayerUnit(Difficulty);
-        int test = Player.Inventory[0].ItemID;
-        Console.Write(Items.test);
+        Console.ReadLine();
     }
 
     static void SelectDifficulty()

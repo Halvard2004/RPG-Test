@@ -9,15 +9,15 @@ public class CreatePlayer
         switch (MyGame.Difficulty)
         {
             case "Easy":
-                PlayerStats.GiveHealth(200);
+                PlayerStats.SetHealth(200, MyGame.Player);
                 PlayerStats.StatVariables(20);
                 break;
             case "Medium":
-                PlayerStats.GiveHealth(150);
+                PlayerStats.SetHealth(150, MyGame.Player);
                 PlayerStats.StatVariables(15);
                 break;
             case "Hard":
-                PlayerStats.GiveHealth(100);
+                PlayerStats.SetHealth(100, MyGame.Player);
                 PlayerStats.StatVariables(10);
                 break;
             default:

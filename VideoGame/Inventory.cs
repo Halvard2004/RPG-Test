@@ -2,18 +2,18 @@
 
 public class Inventory
 {
-    public int amount; 
-    public int ItemID;
+    public int Amount; 
+    public int ItemId;
 
-    public Inventory(int itemSlotID, int amount)
+    public Inventory(Items itemSlotID, int amount)
     {
-        ItemID = itemSlotID;
-        this.amount = amount;
+        ItemId = (int)itemSlotID;
+        this.Amount = amount;
     }
 
     public Inventory()
     {
-        ItemID = 0;
-        amount = 0;
+        ItemId = 0;
+        Amount = 0;
     }
 }
