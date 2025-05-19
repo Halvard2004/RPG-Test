@@ -1,16 +1,16 @@
 ﻿namespace VideoGame;
 
-public class PlayerStats
+public class TestDocument
 {
-    
-    public static void StatVariables(Player unit)
-    {
-        int strengthGive = 0;
-        int healthGive = 0;
-        int agilityGive = 0;
-        ShareStats(strengthGive, healthGive, agilityGive, unit);
-    }
+    private static int _strengthGive = 0;
+    private static int _healthGive = 0;
+    private static int _agilityGive = 0;
 
+
+    public static void LvlUpBonus(Player unit, int amount = 2)
+    {
+        unit.Stat.StatPoints += amount;
+    }
     
     public static void SetHealth(int amount, Player unit)
     {
@@ -18,23 +18,27 @@ public class PlayerStats
         unit.Health =  unit.MaxHealth;
     }
     
-    public static void ShareStats(int strengthGive, int healthGive, int agilityGive, Player unit)
+    public static void ShareStats(Player unit)
     {
+        while (true){
         Console.WriteLine($"Stat Points to give: {unit.Stat.StatPoints}");
-        Console.WriteLine($"Strength: {Stats.Strength}");
-        Console.WriteLine($"Agility: {Stats.Agility}");
-        Console.WriteLine($"Health: {Stats.Health}");
-
-        if (unit.Stat.StatPoints > 0)
-        {
-            DecideStat(strengthGive, healthGive, agilityGive, unit.Stat.StatPoints, unit);
+        Console.WriteLine($"Strength: {Stats.Strength} + {_strengthGive}");
+        Console.WriteLine($"Agility: {Stats.Agility} + {_agilityGive}");
+        Console.WriteLine($"Health: {Stats.Health} + {_healthGive}");
+        _strengthGive++;
+        _healthGive++;
+        _agilityGive++;
+        // if (unit.Stat.StatPoints <= 0)
+        // {
+        // }
+        DecideStat(unit);
+        return;
         }
-        
-        
-        
+
+
     }
 
-    public static void DecideStat(int strengthGive, int healthGive, int agilityGive, int amount, Player unit)
+    public static void DecideStat(Player unit)
     {
         Console.WriteLine("""
                           Which stat do you want to give or remove
@@ -46,26 +50,26 @@ public class PlayerStats
         ConsoleKeyInfo input = Console.ReadKey(true);
         if (input.Key == ConsoleKey.D1)
         {
-            SelectGiveTakeStat(strengthGive, amount, unit);
+            SelectGiveTakeStat(_strengthGive, unit);
             return;
         } 
         else if (input.Key == ConsoleKey.D2)
         {
-            SelectGiveTakeStat(agilityGive, amount, unit);
+            SelectGiveTakeStat(_agilityGive, unit);
             return;
         } 
         else if (input.Key == ConsoleKey.D3)
         {
-            SelectGiveTakeStat(healthGive, amount, unit );
+            SelectGiveTakeStat(_healthGive, unit);
             return;
         }
         else;
         {
-            DecideStat(strengthGive, healthGive, agilityGive, amount, unit);
+            DecideStat(unit);
         }
     }
 
-    public static void SelectGiveTakeStat(int stat, int amount, Player unit)
+    public static void SelectGiveTakeStat(int stat, Player unit)
     {
         Console.WriteLine($"""
                            Add or Remove StatPoints {stat}
@@ -77,26 +81,26 @@ public class PlayerStats
         switch (readKey.Key)
         {
             case ConsoleKey.D1:
-                AmountStat(stat, amount,"Remove", unit);
+                AmountStat(stat, "Remove", unit);
                 break;
             case ConsoleKey.D2:
-                AmountStat(stat, amount, "Add", unit);
+                AmountStat(stat,  "Add", unit);
                 break;
             default:
-                SelectGiveTakeStat(stat, amount, unit);
+                SelectGiveTakeStat(stat, unit);
                 return;
         }
         
     }
 
-    public static void AmountStat(int stat, int amount, string statName, Player unit)
+    public static void AmountStat(int stat, string statName, Player unit)
     {
         int Selected;
         Console.WriteLine($"""
                            How much
                            1) 1
                            2) 5
-                           3) {amount}
+                           3) {unit.Stat.StatPoints}
                            """
         );
         ConsoleKeyInfo input = Console.ReadKey(true);
@@ -109,10 +113,10 @@ public class PlayerStats
                 Selected = 5;
                 break;
             case ConsoleKey.D3:
-                Selected = amount;
+                Selected = unit.Stat.StatPoints;
                 break;
             default:
-                AmountStat(stat, amount, statName, unit);
+                AmountStat(stat, statName, unit);
                 return;
         }
 
@@ -126,7 +130,7 @@ public class PlayerStats
                 break;
             default:
                 Console.WriteLine("Try again");
-                AmountStat(stat, amount, statName, unit);
+                AmountStat(stat, statName, unit);
                 break;
         }
         

@@ -10,15 +10,19 @@ public class CreatePlayer
         {
             case "Easy":
                 PlayerStats.SetHealth(200, MyGame.Player);
-                PlayerStats.StatVariables(20);
+                // PlayerStats.StatVariables(20, MyGame.Player);
+                TestDocument.LvlUpBonus(MyGame.Player, 20);
+                TestDocument.ShareStats(MyGame.Player);
                 break;
             case "Medium":
                 PlayerStats.SetHealth(150, MyGame.Player);
-                PlayerStats.StatVariables(15);
+                // PlayerStats.LvlUpBonus(15, MyGame.Player);
+                PlayerStats.StatVariables(MyGame.Player);
                 break;
             case "Hard":
                 PlayerStats.SetHealth(100, MyGame.Player);
-                PlayerStats.StatVariables(10);
+                // PlayerStats.LvlUpBonus(10, MyGame.Player);
+                PlayerStats.StatVariables(MyGame.Player);
                 break;
             default:
                 break;

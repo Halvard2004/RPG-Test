@@ -31,6 +31,7 @@ public class Player
             new Inventory(),
             new Inventory(),
             new Inventory(),
+            new Inventory(),
         ];
         Equipments =
         [
