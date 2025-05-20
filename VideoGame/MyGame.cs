@@ -32,8 +32,8 @@ public class MyGame
     static void StartGame()
     {
         SelectDifficulty();
-        CreatePlayer.CreatePlayerUnit(Difficulty);
-        Console.ReadLine();
+        PlayerCreator.CreatePlayerUnit(Difficulty);
+        
     }
 
     static void SelectDifficulty()

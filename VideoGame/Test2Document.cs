@@ -1,5 +1,5 @@
 ﻿namespace VideoGame;
 
-public class TestDocument
+public class Test2Document
 {
 }

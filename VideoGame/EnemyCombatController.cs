@@ -1,6 +1,6 @@
 ﻿namespace VideoGame;
 
-public class EnemyMoveSet
+public class EnemyCombatController
 {
     public static void EnemyAction()
     {

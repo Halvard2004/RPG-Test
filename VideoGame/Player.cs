@@ -6,7 +6,7 @@ public class Player
     public int Health;
     public int MaxHealth;
     public int Lvl;
-    public Stats Stat = new Stats();
+    public PlayerStats Stat = new PlayerStats();
     public Inventory[] Inventory;
     public Equipment[] Equipments;
 
