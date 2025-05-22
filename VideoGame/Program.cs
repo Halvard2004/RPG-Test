@@ -2,4 +2,5 @@
 
 using VideoGame;
 
-MyGame.Run();
+var myGame = new MyGame();
+myGame.Run();

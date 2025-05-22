@@ -2,23 +2,23 @@
 
 public class PlayerStatsManager
 {
-    private static int _strengthGive = 0;
-    private static int _healthGive = 0;
-    private static int _agilityGive = 0;
-    private static int _tempStatPoints = 0;
+    private int _strengthGive = 0;
+    private int _healthGive = 0;
+    private int _agilityGive = 0;
+    private int _tempStatPoints = 0;
 
-    public static void LvlUpBonus(Player unit, int amount = 2)
+    public void LvlUpBonus(Player unit, int amount = 2)
     {
         unit.Stat.StatPoints += amount;
     }
     
-    public static void SetHealth(int amount, Player unit)
+    public void SetHealth(int amount, Player unit)
     {
         unit.MaxHealth = amount;
         unit.Health =  unit.MaxHealth;
     }
     
-    public static void EditStatsMenu(Player unit)
+    public void EditStatsMenu(Player unit)
     {
         _tempStatPoints = unit.Stat.StatPoints;
         while (true){
@@ -53,7 +53,7 @@ public class PlayerStatsManager
 
     }
 
-    private static void EditStats(Player unit)
+    private void EditStats(Player unit)
     {
         while (true)
         {
@@ -96,7 +96,7 @@ public class PlayerStatsManager
     }
 
 
-    private static int DecideStat()
+    private int DecideStat()
     {
         while (true)
         {
@@ -128,7 +128,7 @@ public class PlayerStatsManager
         }
     }
 
-    private static int DecideAmount(Player unit)
+    private int DecideAmount(Player unit)
     {
         while (true)
         {
@@ -170,7 +170,7 @@ public class PlayerStatsManager
         }
     }
 
-    private static void ChangeGiveStat(int statSelected, int amountToChange)
+    private void ChangeGiveStat(int statSelected, int amountToChange)
     {
         
         switch (statSelected)
@@ -190,7 +190,7 @@ public class PlayerStatsManager
         }
         }
 
-    private static void SaveStatChange(Player unit)
+    private void SaveStatChange(Player unit)
     {
         unit.Stat.StatPoints = _tempStatPoints;
         unit.Stat.Strength += _strengthGive;

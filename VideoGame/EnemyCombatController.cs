@@ -2,7 +2,7 @@
 
 public class EnemyCombatController
 {
-    public static void EnemyAction()
+    public void EnemyAction()
     {
         if (MyGame.EnemyStrongAttack) EnemyStrong();
         else{
@@ -22,7 +22,7 @@ public class EnemyCombatController
         }
     }
     
-    static void EnemyAttack()
+    void EnemyAttack()
     {
         if (MyGame.DoingEvade)
         {
@@ -46,7 +46,7 @@ public class EnemyCombatController
         Console.WriteLine($"Enemy Attacked");
     }
 
-    static void EnemyStrong()
+    void EnemyStrong()
     {
         if (MyGame.EnemyStrongAttack)
         {

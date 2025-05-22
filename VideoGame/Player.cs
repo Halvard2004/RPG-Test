@@ -5,7 +5,7 @@ public class Player
 {
     public int Health;
     public int MaxHealth;
-    public int Lvl;
+    public Level Lvl;
     public PlayerStats Stat = new PlayerStats();
     public Inventory[] Inventory;
     public Equipment[] Equipments;
@@ -42,6 +42,7 @@ public class Player
             new Equipment("Talisman 1"),
             new Equipment("Talisman 2"),
         ];
+        Lvl = new Level();
     }
     
     

@@ -2,7 +2,7 @@
 
 public class PlayerCreator
 {
-    public static void CreatePlayerUnit(string difficulty)
+    public void CreatePlayerUnit(string difficulty)
     {
         MyGame.Player = new Player();
         

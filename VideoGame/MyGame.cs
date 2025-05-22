@@ -2,13 +2,15 @@
 
 public class MyGame
 {
-    public static Player Player;
+    public GameConnect Game = new GameConnect();
+    public Player Player;
+    public Enemy Enemy;
+    public List<Enemy> Enemies = new List<Enemy>();
     public static string Difficulty = "";
     public static bool EnemyStrongAttack = false;
     public static bool DoingBlock = false;
     public static bool DoingEvade = false;
     public static int Duels = 0;
-    public static int Lvl = 1;
     public static int ExperienceNeed = 50;
     public static int PlayerHP;
     public static int PlayerHPMax;
@@ -23,17 +25,18 @@ public class MyGame
     public static Random random = new Random();
 
 
-    public static void Run()
+    public void Run()
     {
         StartGame();
         // Tutorial.FirstFightPhaseOne();
     }
 
-    static void StartGame()
+    void StartGame()
     {
         SelectDifficulty();
-        PlayerCreator.CreatePlayerUnit(Difficulty);
-        
+        Game.PlayerCreator.CreatePlayerUnit(Difficulty);
+        Game.LevelManager.EarnExp(70);
+        Console.ReadLine();
     }
 
     static void SelectDifficulty()
