@@ -6,23 +6,23 @@ public class MyGame
     public Player Player;
     public Enemy Enemy;
     public List<Enemy> Enemies = new List<Enemy>();
-    public static string Difficulty = "";
-    public static bool EnemyStrongAttack = false;
-    public static bool DoingBlock = false;
-    public static bool DoingEvade = false;
-    public static int Duels = 0;
-    public static int ExperienceNeed = 50;
-    public static int PlayerHP;
-    public static int PlayerHPMax;
-    public static int EnemyHp;
-    public static int EnemyHpMax;
-    public static int EnemyHpMin;
-    public static int PlayerDamageMax;
-    public static int PlayerDamageMin;
-    public static int EnemyDamgeMax;
-    public static int EnemyDamgeMin;
-    public static int EvadeChance = 33;
-    public static Random random = new Random();
+    public string Difficulty = "";
+    public bool EnemyStrongAttack = false;
+    public bool DoingBlock = false;
+    public bool DoingEvade = false;
+    public int Duels = 0;
+    public int ExperienceNeed = 50;
+    public int PlayerHP;
+    public int PlayerHPMax;
+    public int EnemyHp;
+    public int EnemyHpMax;
+    public int EnemyHpMin;
+    public int PlayerDamageMax;
+    public int PlayerDamageMin;
+    public int EnemyDamgeMax;
+    public int EnemyDamgeMin;
+    public int EvadeChance = 33;
+    public Random random = new Random();
 
 
     public void Run()
@@ -34,12 +34,12 @@ public class MyGame
     void StartGame()
     {
         SelectDifficulty();
-        Game.PlayerCreator.CreatePlayerUnit(Difficulty);
-        Game.LevelManager.EarnExp(70);
+        Player = Game.PlayerCreator.CreatePlayerUnit(Difficulty);
+        Game.LevelManager.EarnExp(70, Player);;
         Console.ReadLine();
     }
 
-    static void SelectDifficulty()
+    void SelectDifficulty()
     {
         Console.WriteLine("""
                           Hello Adventurer,

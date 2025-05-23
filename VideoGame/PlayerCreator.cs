@@ -2,29 +2,30 @@
 
 public class PlayerCreator
 {
-    public void CreatePlayerUnit(string difficulty)
+    public Player CreatePlayerUnit(string difficulty)
     {
-        MyGame.Player = new Player();
-        
+        Player player = new Player();
+        PlayerStatsManager playerStatsManager = new PlayerStatsManager();
         switch (difficulty)
         {
             case "Easy":
-                PlayerStatsManager.SetHealth(200, MyGame.Player);
-                PlayerStatsManager.LvlUpBonus(MyGame.Player, 20);
-                PlayerStatsManager.EditStatsMenu(MyGame.Player);
+                playerStatsManager.SetHealth(200, player);
+                playerStatsManager.LvlUpBonus(player, 20);
+                playerStatsManager.EditStatsMenu(player);
                 break;
             case "Medium":
-                PlayerStatsManager.SetHealth(150, MyGame.Player);
-                PlayerStatsManager.LvlUpBonus(MyGame.Player, 15);
-                PlayerStatsManager.EditStatsMenu(MyGame.Player);
+                playerStatsManager.SetHealth(150, player);
+                playerStatsManager.LvlUpBonus(player, 15);
+                playerStatsManager.EditStatsMenu(player);
                 break;
             case "Hard":
-                PlayerStatsManager.SetHealth(100, MyGame.Player);
-                PlayerStatsManager.LvlUpBonus(MyGame.Player, 10);
-                PlayerStatsManager.EditStatsMenu(MyGame.Player);
+                playerStatsManager.SetHealth(100, player);
+                playerStatsManager.LvlUpBonus(player, 10);
+                playerStatsManager.EditStatsMenu(player);
                 break;
             default:
                 break;
         }
+        return player;
     }
 }
